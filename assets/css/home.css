@@ -1,0 +1,347 @@
+/* The parent wrapper for the two circles */
+.circle-wrapper {
+  position: relative;
+  width: 160px;
+  height: 100px;
+}
+
+/* The left, striped circle */
+.circle-left {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #0a1f5d,
+    #0a1f5d 2px,
+    #00123a 2px,
+    #00123a 4px
+  );
+}
+
+/* The right, white circle containing the text and icon */
+.circle-right {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+/* The central icon */
+.center-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #ff5b00;
+  color: white;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.center-icon i{
+  padding-left: 6.5px;
+}
+
+/* The container for the rotating text */
+.circle-text-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateText 10s linear infinite;
+  top: 10px;
+  left: 10px;
+}
+
+/* Individual text characters */
+.circle-text-circle span {
+  position: absolute;
+  transform-origin: 50% 50%;
+  color: #3e5a87;
+  font-size: 9px;
+  font-weight: 900;
+  white-space: pre;
+}
+
+/* This is where the magic for character placement happens */
+.circle-text-circle span {
+    transform: rotate(calc((360deg / var(--total-chars)) * var(--i))) translate(40px);
+}
+
+/* Animation for the overall text circle rotation */
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#home{
+  background: linear-gradient(
+    to bottom,
+  rgb(240, 240, 240) 0%,
+  rgb(240, 240, 240) 70%,
+    var(--primary-color) 70%,
+    var(--primary-color) 100%);
+  padding: 3rem 7rem;
+}
+
+
+.home-welcome-div h4 {
+  position: relative;
+  color: var(--primary-color);
+  font-size: 18px;
+  padding-left: 50px;
+}
+
+.home-welcome-div h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); 
+  width: 42px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.accent-color{
+  color: var(--accent-color);
+}
+
+.inovation-welcome-div{
+  margin-top:0 !important;
+  margin: 3rem 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap:25rem
+}
+
+.inovation-welcome-div h2{
+  color: var(--primary-color);
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.services-welcome-div{
+  margin: 4rem 0;
+  display: flex;
+}
+
+.services-div{
+  min-width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.service-div {
+  display: inline-block;
+  max-height: 36px;
+  padding: 2px 8px;
+  background-color: var(--white);
+  border: 0.4px solid var(--light-bg);
+  border-radius: 30px;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.bar-service-div{
+  height: auto;
+  width: 4.4px;
+  background-color: var(--accent-color);
+  border-radius: 70%;
+}
+
+.service-desc-div{
+  padding-left: 30px;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.main-welcome-div{
+  margin: 4rem 5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+td>span{
+  display: flex;
+  flex-direction: column;
+}
+
+.features-table {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #0b1f3a;
+  border-radius: 15px;
+}
+
+.features-table td {
+  padding: 2rem;
+  border: 2px solid var(--light-bg);
+}
+
+.features-table td .accent-color{
+  font-size: 22px;
+}
+
+.features-table tr:first-child td {
+  border-top: none;
+}
+.features-table tr:last-child td {
+  border-bottom: none;
+}
+.features-table td:first-child {
+  border-left: none;
+}
+.features-table td:last-child {
+  border-right: none;
+}
+
+.experiance-div{
+  color: rgba(255,255,255,0.8);
+  background-color: var(--accent-color);
+  padding: 3px 7px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experiance-div span{
+  color: var(--white);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  #home{
+    padding: 1rem 1.5rem;
+  }
+
+  .inovation-welcome-div{
+    margin: 1.5rem 2.5rem;
+    gap:2rem;
+  }
+
+  .inovation-welcome-div h2 {
+    font-size: 35px;
+  }
+  
+  .circle-wrapper{
+    height: 80px;
+    width: 120px;
+  }
+
+  .circle-left,.circle-right{
+    height: 85px;
+    width: 85px;
+  }
+
+  .circle-text-circle{
+    height: 30px;
+    width: 30px;
+    top: 27px;;
+    left: 27px;
+  }
+
+  .circle-text-circle span {
+    font-weight: 800;
+    transform: rotate(calc((360deg / var(--total-chars)) * var(--i))) translate(35px);
+  }
+
+  .main-welcome-div{
+    justify-content: space-around;
+    margin: 1rem 1rem;
+    gap: 1rem;
+  }
+
+  .features-table{
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .home-welcome-div h4 {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  .home-welcome-div h4::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+  }
+
+  .home-welcome-div h4::before {
+    left: calc(50% - 210px);
+    transform: translateY(-50%);
+  }
+  
+  .inovation-welcome-div {
+    margin: 0.5rem 1.5rem;
+    gap: 0;
+  }
+
+  .inovation-welcome-div h2{
+    font-size: 25px;
+  }
+
+  .services-welcome-div{
+    flex-direction: column;
+  }
+
+  .bar-service-div{
+    height: 4.4px;
+    width: auto;
+    margin: 1rem 0;
+  }
+
+  .main-welcome-div{
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .experiance-div{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+  }
+}

@@ -1,0 +1,74 @@
+:root {
+    --white: #ffffff;
+    --primary-color: #01165a;
+    --accent-color: #fe5d15;
+    --light-bg: #eeeae9;
+    --text-color: #333; /* Slightly darker for better readability */
+    --border-color: rgba(0, 0, 0, 0.1); /* Consistent border color */
+    --hover-accent-color: #e0441d; /* Darker accent for hover state */
+    --font-size-base: 16px; /* Define base font size in px for consistency */
+    --line-height-base: 1.6;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --container-max-width: 1300px;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none; 
+    text-decoration: none; 
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px, for easier rem calculations */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Added a generic fallback */
+    font-size: var(--font-size-base); /* Using the base font size */
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    background-color: var(--light-bg); /* Use light background from variables */
+}
+
+/* Global focus outline for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Optional: Utility classes for common patterns */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md); /* Consistent horizontal padding */
+}
+
+.visually-hidden { /* For screen readers only */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.hero {
+    width: 100%;
+    height: 100px;
+    background-color: var(--light-bg); /* facultatif pour test visuel */
+}
+
+/* Footer propre */

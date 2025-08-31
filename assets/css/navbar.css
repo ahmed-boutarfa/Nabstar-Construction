@@ -1,0 +1,279 @@
+.main-header {
+  width: 100%;
+  height: 11rem;
+  padding: var(--spacing-md) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    min-width: 95vw;
+}
+
+.header-logo-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding-right: var(--spacing-md);
+}
+
+.header-logo-section::after {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    height: 7rem;
+    width: 2px;
+    background-color: var(--accent-color); 
+}
+
+.fa-solid{
+    width: 3rem;
+    padding-right: 0.1rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: var(--accent-color); /* This will work if SVG is currentColor */
+    flex-shrink: 0;
+}
+
+.site-slogan {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    white-space: nowrap;
+}
+
+.mobile-menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    font-size: 2.5rem; /* Larger icon for touch */
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.header-contact-nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.header-contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xs);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-lg); /* Vertical and horizontal gap */
+}
+
+.contact-links-group {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-link .fas,
+.contact-link .far {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+}
+
+.header-media-links {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.header-media-links a {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    padding-right:0.4rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.header-media-links a:hover {
+    color: var(--accent-color);
+}
+
+.header-nav-cta-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+.main-nav {
+    flex: 1;
+    min-width: 0;
+}
+
+.main-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-md);
+}
+
+.main-nav-list a i{
+  padding-right: 0 !important;
+  text-align: center;
+}
+
+.main-nav-list a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color .3s ease;
+}
+.main-nav-list a::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0 auto;     /* left:0; right:auto; */
+  bottom: -.3rem;
+  height: 2px;
+  background: var(--hover-accent-color);
+  width: 0;
+  transition: width .3s ease;
+}
+.main-nav-list a:hover {
+  color: var(--hover-accent-color);
+}
+.main-nav-list a:hover::after { width: 100%; }
+
+.btn { /* Base button style */
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex; /* Allows icon inside if needed */
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary { /* Primary button specific styles */
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-accent-color); /* Using the new hover variable */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+@media screen and (max-width: 1025px) {
+  .main-header {
+    height: 5.6rem;
+    padding: var(--spacing-xs) 0;
+    width: 100%;
+  }
+  .header-contact-nav-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .header-contact-nav-wrapper.is-active {
+    max-height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+    padding: var(--spacing-lg);
+  }
+
+  .header-top-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-logo-section::after {
+    display: none;
+  }
+
+  .mobile-menu-toggle{
+    display: block;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .main-nav-list{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-nav-list li{
+    width: fit-content;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

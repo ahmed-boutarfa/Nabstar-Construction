@@ -1,0 +1,13 @@
+/* === LAYOUT GLOBAL === */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* important : minimum full screen height */
+}
+
+/* Contenu principal */
+main {
+  height: 100%;
+  flex: 1; /* pour pousser le footer en bas si page vide */
+  padding-top: 11rem; /* si header est fixed */
+}
