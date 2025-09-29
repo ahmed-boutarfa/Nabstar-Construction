@@ -38,7 +38,7 @@
                     </a>
                 </div>
 
-                <div class="header-media-links">
+                <!--<div class="header-media-links">
                     <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -51,26 +51,32 @@
                     <a href="#" aria-label="Google Maps" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-map-marker-alt"></i>
                     </a>
+                </div>-->
+
+                <div class="cta-button-wrapper">
+                    <button type="button" id="getQuoteBtn" class="btn btn-primary">Get A Quote</button>
+                    <!--<div id="iframeOverlay" class="iframe-overlay">
+                        <span id="closeIframe" class="close-btn">&times;</span>
+                        <iframe src="contact.php" frameborder="0"></iframe>
+                    </div>-->
                 </div>
             </div>
 
             <div class="header-nav-cta-group">
                 <nav class="main-nav" aria-label="Main Navigation">
                     <ul class="main-nav-list">
-                        <li><a href="index.php"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                        <li><a href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
                         <li><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></li>
-                        <li><a href="services.php"><i class="fa-solid fa-screwdriver-wrench"></i><span>Services</span></a></li>
-                        <li><a href="area.php"><i class="fa-solid fa-map-location-dot"></i><span>Service Area</span></a></li>
-                        <li><a href="work.php"><i class="fa-solid fa-helmet-safety"></i><span>Our Work</span></a></li>
-                        <li><a href="testimonials.php"><i class="fa-solid fa-comments"></i><span>Testimonials</span></a></li>
-                        <li><a href="faq.php"><i class="fa-solid fa-circle-question"></i><span>FAQ</span></a></li>
-                        <li><a href="contact.php"><i class="fa-solid fa-phone"></i><span>Contact</span></a></li>
+                        <li><a href="#work"><i class="fa-solid fa-helmet-safety"></i><span>Our Work</span></a></li>
+                        <li><a href="#services"><i class="fa-solid fa-screwdriver-wrench"></i><span>Services</span></a></li>
+                        <li><a href="#services-area"><i class="fa-solid fa-map-location-dot"></i><span>Service Area</span></a></li>
+                        <li><a href="#testimonials"><i class="fa-solid fa-comments"></i><span>Testimonials</span></a></li>
+                        <li><a href="#faqs"><i class="fa-solid fa-circle-question"></i><span>FAQ</span></a></li>
+                        <li><a href="#contact"><i class="fa-solid fa-phone"></i><span>Contact</span></a></li>
                     </ul>
                 </nav>
 
-                <div class="cta-button-wrapper">
-                    <button type="button" class="btn btn-primary">Get A Quote</button>
-                </div>
+                
             </div>
         </div>
     </div>

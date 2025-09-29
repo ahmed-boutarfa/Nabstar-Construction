@@ -1,0 +1,313 @@
+.work {
+  background-color: var(--primary-color);
+}
+
+.work__title {
+  width: 200px;
+  margin: 0 auto;
+  color: var(--white);
+}
+
+.works__headline {
+  min-width: 350px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--white);
+}
+
+.work__subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--white);
+}
+
+.work__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.work__item {
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.3s ease; /* A slightly longer transition for a smoother feel */
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 340px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* This creates the animated light effect */
+.work__item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.2), transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.work__item:hover::before {
+  opacity: 1;
+}
+
+/* Add a hover state for a lifting effect */
+.work__item:hover {
+    transform: scale(1.03); /* Lifts the card slightly */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25); /* Adds a more pronounced shadow */
+}
+
+/* Use a transition for the transform on the inner elements as well */
+.work__item__data {
+    transition: transform 0.3s ease;
+}
+
+.work__item.is-active .work__item__data {
+    transform: translateZ(50px);
+}
+
+
+
+/* image block */
+.work__image__div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.work__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+  padding: 10px;
+  border-radius: 18px;
+}
+
+
+
+.date-display {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(255,255,255,0.2);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* text block */
+.work__item__data {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.work__headline h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.work__headline p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+}
+
+.work__info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.work__info i {
+  color: var(--secondary-color);
+}
+
+/* Swap image & text for even items */
+.work__item:nth-child(even) .work__image__div {
+  order: 2;
+}
+.work__item:nth-child(even) .work__item__data {
+  order: 1;
+}
+
+.work__item:nth-child(odd)::before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 150px;
+    background-color: var(--accent-color);
+    top: -90px;
+    left: -80px;
+    rotate: 45deg;
+    z-index: 999;
+}
+
+.work__item:nth-child(even)::after{
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 150px;
+    background-color: var(--accent-color);
+    top: -90px;
+    right: -80px;
+    rotate: 45deg;
+    z-index: 999;
+}
+
+.learn__more__card{
+  color: var(--accent-color);
+}
+
+.learn__more__card:hover{
+  color: var(--hover-accent-color);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .work__item {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .work__image__div {
+    height: 240px;
+  }
+  .work__item:nth-child(even) .work__image__div {
+  order: 1;
+}
+}
+
+.work__headline{
+  margin-bottom: 20px;
+}
+
+.work__headline h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.work__headline p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+    line-height: 1.6;
+    font-size: 1.8rem;
+}
+
+.work__info {
+    margin-bottom: 25px;
+    line-height: 0.5;
+}
+
+.work__info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    font-size: 1.2rem;
+}
+
+.work__bio {
+  max-height: 5rem; 
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.work__bio.expanded {
+  max-height: 1000px; 
+}
+
+.work__bio.expanded::after {
+  opacity: 0;
+}
+
+.view-more-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  margin-top: 5px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.view-more-btn:hover {
+  color: var(--hover-accent-color);
+}
+
+
+.work__info .icon__bg__accent{
+    padding: 0.6rem;
+    font-size: 1.4rem;
+}
+
+.work__info .icon__bg__accent i{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.view-more {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.view-more:hover {
+    background: var(--primary-color);
+}
+
+.loading {
+    text-align: center;
+    padding: 30px;
+    grid-column: 1 / -1;
+}
+
+.loading i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+.error-message {
+    text-align: center;
+    padding: 30px;
+    color: var(--accent-color);
+    background: #ffeaea;
+    border-radius: 8px;
+    grid-column: 1 / -1;
+}
+
+.date-display {
+    backdrop-filter: blur(2px);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    border: 1px solid var(--white);
+}
+

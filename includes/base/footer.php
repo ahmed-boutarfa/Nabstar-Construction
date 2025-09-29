@@ -1,4 +1,5 @@
         <footer>
+        <div class="degradation"></div>
         <div class="footer-container">
             <div class="footer-top">
                 <!-- Top CTA Section -->
@@ -39,14 +40,14 @@
                 <div class="footer-navigation">
                     <h3>Navigation</h3>
                     <ul class="footer-nav-list">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="services.php">Services</a></li>
-                        <li><a href="area.php">Service Area</a></li>
-                        <li><a href="work.php">Our Work</a></li>
-                        <li><a href="testimonials.php">Testimonials</a></li>
-                        <li><a href="faq.php">FAQ</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#services-area">Service Area</a></li>
+                        <li><a href="#work">Our Work</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faqs">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -79,10 +80,15 @@
             <p><a href="#">User Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
         </div>
         </footer>
+        <script src="assets/js/function.js"></script>
         <script src="assets/js/services-view.js"></script>
         <script src="assets/js/services-area-view.js"></script>
         <script src="assets/js/mobile-menu.js"></script>
         <script src="assets/js/sticky-header.js"></script>
         <script src="assets/js/home-count-experiance.js"></script>
+        <script src="assets/js/work-view.js"></script>
+        <script src="assets/js/testimonials-view.js"></script>
+        <script src="assets/js/faqs-view.js"></script>
+        <script src="assets/js/rotate-get-in-touch.js"></script>
     </body>
 </html>

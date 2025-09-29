@@ -11,3 +11,9 @@ main {
   flex: 1; /* pour pousser le footer en bas si page vide */
   padding-top: 11rem; /* si header est fixed */
 }
+
+@media screen and (max-width: 1024px) {
+  main{
+    padding-top: 0;
+  }
+}
