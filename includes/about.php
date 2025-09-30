@@ -12,7 +12,7 @@
             </div>
 
             <div class="about__cta">
-                <button type="button" class="btn btn-primary">Contact Us</button>
+                <button type="button" style="padding: 2rem 3rem;" class="btn btn-accent formContact">Contact Us</button>
             </div>
         </div>
 

@@ -5,7 +5,7 @@
                 <!-- Top CTA Section -->
                 <div class="contact-div">
                 <h1>Let's <span>Connect</span> there</h1>
-                <a href="contact.php" class="btn">Contact Us</a>
+                <button href="#" class="btn btn-accent formContact">Contact Us</button>
                 </div>
 
                 <!-- Main Grid Footer Info -->
@@ -21,10 +21,10 @@
                     
                     <!-- Social Media -->
                     <div class="footer-media-links">
-                    <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/nabstarconstruction/photos?locale=en_GB&checkpoint_src=any" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                    <a href="https://api.whatsapp.com/send/?phone=447449747101&text=Hello+Nabstar+Construction%2C+I+would+like+to+get+a+quote+please.&type=phone_number&app_absent=0" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="mailto:info@nabstarconstruction.co.uk" aria-label="Email">
@@ -42,9 +42,9 @@
                     <ul class="footer-nav-list">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#work">Our Work</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#services-area">Service Area</a></li>
-                        <li><a href="#work">Our Work</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#faqs">FAQ</a></li>
                         <li><a href="#contact">Contact</a></li>

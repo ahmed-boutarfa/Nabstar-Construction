@@ -131,21 +131,6 @@
   opacity: 0.7;
 }
 
-.faqs__contact .btn {
-  background: var(--accent-color);
-  border: none;
-  padding: var(--spacing-lg) var(--spacing-lg);
-  border-radius: 15px;
-  font-size: 1.6rem;
-  color: var(--white);
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.faqs__contact .btn:hover {
-  background: var(--hover-accent-color);
-}
-
 /* Phone Box */
 .faqs__number__info {
   background: var(--white);

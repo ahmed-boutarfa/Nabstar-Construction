@@ -49,24 +49,6 @@ label {
   color: var(--primary-color);
 }
 
-/* Button */
-#submitForm {
-  background: var(--accent-color);
-  color: var(--white);
-  border: none;
-  padding: 1.5rem 2rem;
-  border-radius: 15px;
-  font-size: 1.4rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: fit-content;
-}
-
-#submitForm:hover {
-  background: #e64a19;
-}
-
 /* Info Box */
 .contact__info {
   background: var(--primary-color);

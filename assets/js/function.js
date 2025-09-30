@@ -85,3 +85,29 @@ function initFormHandler(doc) {
         });
     });
 }
+
+// show loading (pass container)
+function showLoading(container, msg) {
+  container.innerHTML = `
+    <div class="loading">
+      <i class="fas fa-spinner fa-spin loading__spinner"></i>
+      <p>Loading ${msg}</p>
+    </div>
+  `;
+}
+
+// show error (pass container)
+function showError(container, msg, retryCallback = null) {
+  container.innerHTML = `
+    <div class="error-message">
+      <i class="fas fa-exclamation-circle"></i>
+      <p>${msg}</p>
+      ${retryCallback ? '<button class="retry-btn">Réessayer</button>' : ""}
+    </div>
+  `;
+
+  if (retryCallback) {
+    const retryBtn = container.querySelector(".retry-btn");
+    retryBtn.addEventListener("click", retryCallback);
+  }
+}

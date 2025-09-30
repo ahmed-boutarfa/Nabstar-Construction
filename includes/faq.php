@@ -16,7 +16,7 @@
           We will answer all your questions.<br>
           We ensure a quick response.
         </p>
-        <button type="button" class="btn btn-primary">Contact Us</button>
+        <button type="button" class="btn btn-accent formContact">Contact Us</button>
         <div class="degradation"></div>
       </div>
 

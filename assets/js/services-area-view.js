@@ -1,75 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("servicesAreaContainer");
   const toggleBtn = document.getElementById("toggleAreaBtn");
-  const loadingIndicator = document.getElementById("loadingIndicator");
-  const errorMessage = document.getElementById("errorMessage");
 
   let offset = 0;
   let limit = getLimit();
   let total = 0;
-  let isLoading = false;
+  let expanded = false;
 
   function getLimit(defaultLimit = 12) {
-    if (window.innerWidth < 480) return 6;
+    if (window.innerWidth < 500) return 6;
     if (window.innerWidth < 756) return 8;
-    if (window.innerWidth < 1024) return 10;
+    if (window.innerWidth < 1024) return 9;
     return defaultLimit;
   }
 
-  function showLoading() {
-    isLoading = true;
-    if (loadingIndicator) loadingIndicator.style.display = 'block';
-    if (errorMessage) errorMessage.style.display = 'none';
-    toggleBtn.disabled = true;
-  }
-
-  function hideLoading() {
-    isLoading = false;
-    if (loadingIndicator) loadingIndicator.style.display = 'none';
-    toggleBtn.disabled = false;
-  }
-
-  function showError(message) {
-    hideLoading();
-    if (errorMessage) {
-      errorMessage.textContent = message || 'Failed to load areas. Please try again.';
-      errorMessage.style.display = 'block';
-    }
-    console.error("Error fetching services-area:", message);
-  }
-
-  async function fetchAreas(offset = 0, limit = 12) {
+  async function loadAreas(offset = 0, limit = 12, append = false) {
     try {
+      showLoading(container,"Services Area");
       const response = await fetch(`api/services-area-api.php?offset=${offset}&limit=${limit}`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       if (!data.success) throw new Error(data.error || 'API returned unsuccessful response');
       total = data.pagination.total;
-      return data.data || [];
-    } catch (error) {
-      showError(error.message);
-      return [];
-    }
-  }
-
-  async function loadAreas() {
-    if (isLoading) return;
-    showLoading();
-
-    try {
-      const areasData = await fetchAreas(offset, limit);
-      renderAreas(areasData);
-      offset += areasData.length;
-
-      // Cacher le bouton si tout est chargé
-      if (offset >= total) {
-        toggleBtn.style.display = 'none';
-      } else {
-        toggleBtn.style.display = 'block';
+      if (!append) {
+          container.innerHTML = ""
       }
+      renderAreas(data.data);
+      offset += data.data.length;
 
-    } finally {
-      hideLoading();
+    } catch (error) {
+      console.error("Erreur:", error);
+      showError(container,"Failed to load Services Area. Please try again later.");
     }
   }
 
@@ -93,14 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 100 * index);
     });
   }
+  function toggleServicesAreaView() {
+    if (!expanded) {
+        loadAreas(0,total || 100); // charge tout
+        toggleBtn.textContent = "View Less";
+        toggleBtn.setAttribute('aria-expanded', 'true');
+    } else {
+        loadAreas(0, getLimit());
+        toggleBtn.textContent = "View More";
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+    expanded = !expanded;
+  }
 
-  toggleBtn.addEventListener("click", () => {
-    loadAreas();
-  });
+  toggleBtn.addEventListener("click",toggleServicesAreaView);
 
   window.addEventListener('resize', () => {
-    limit = getLimit();
+    loadAreas(0, getLimit());
   });
 
-  loadAreas();
+  loadAreas(0,getLimit());
 });

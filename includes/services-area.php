@@ -8,7 +8,5 @@
         If you are outside our usual area, please contact us as we can still assist with specific projects.
     </p>
     <div id="servicesAreaContainer" class="services-area__content animate-on-scroll"></div>
-    <button id="toggleAreaBtn" class="view-more btn animate-on-scroll">View More</button>
-    <div id="loadingIndicator" style="display:none;">Loading...</div>
-    <div id="errorMessage" style="display:none;color:red;"></div>
+    <button id="toggleAreaBtn" style="margin-left:calc(50% - 50px);padding:1.5rem 2rem" class="btn-primary btn animate-on-scroll">View More</button>
 </section>

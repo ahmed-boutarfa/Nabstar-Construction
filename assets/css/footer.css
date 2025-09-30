@@ -50,23 +50,6 @@ footer::before {
     color: var(--accent-color); /* Highlight accent text */
 }
 
-.contact-div .btn {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 1rem 2.5rem;
-    border-radius: 25px;
-    font-weight: 400;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Group transitions */
-}
-
-.contact-div .btn:hover {
-    background-color: var(--hover-accent-color);
-    transform: translateY(-2px); /* Subtle hover effect */
-}
-
 
 /* --- Footer Information Grid Layout --- */
 .footer-info {

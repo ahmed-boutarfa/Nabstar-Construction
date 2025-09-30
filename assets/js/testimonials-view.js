@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadTestimonials() {
         try {
-            showLoading();
+            showLoading(container,"testimonilas");
             const response = await fetch("api/testimonials-api.php");
             if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
             const result = await response.json();
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateSliderState();
         } catch (err) {
             console.error("Erreur:", err);
-            showError("Échec du chargement des témoignages. Veuillez réessayer plus tard.");
+            showError(container,"Failed to load testimonials. Please try again later.");
         }
     }
 
@@ -153,25 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     container.addEventListener("scroll", updateSliderState);
-
-    function showLoading() {
-        container.innerHTML = `
-            <div class="loading">
-                <i class="fas fa-spinner fa-spin loading__spinner"></i>
-                <p>Chargement des témoignages...</p>
-            </div>
-        `;
-    }
-
-    function showError(msg) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-circle"></i>
-                <p>${msg}</p>
-                <button class="retry-btn" onclick="loadTestimonials()">Réessayer</button>
-            </div>
-        `;
-    }
 
     loadTestimonials();
 });

@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </label>
                 </div>
 
-                <button type="submit" id="submitForm">Send Message</button>
+                <button class="btn btn-accent" type="submit" id="submitForm">Send Message</button>
             </form>
             <div id="formResponse" style="margin-top:10px;color:green;"></div>
         </div>

@@ -54,7 +54,7 @@
                 </div>-->
 
                 <div class="cta-button-wrapper">
-                    <button type="button" id="getQuoteBtn" class="btn btn-primary">Get A Quote</button>
+                    <button type="button" id="getQuoteBtn" class="btn btn-accent formContact">Get A Quote</button>
                     <!--<div id="iframeOverlay" class="iframe-overlay">
                         <span id="closeIframe" class="close-btn">&times;</span>
                         <iframe src="contact.php" frameborder="0"></iframe>

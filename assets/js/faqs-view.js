@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadFaqs() {
         try {
-            showLoading();
+            showLoading(container,"Faq");
             const response = await fetch("api/faqs-api.php");
             if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
             
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderFaqs(faqs);
         } catch (err) {
             console.error("error:", err);
-            showError("Échec du chargement des FAQ");
+            showError(container,"Failed to load FAQs");
         }
     }
 
@@ -55,25 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    function showLoading() {
-        container.innerHTML = `
-            <div class="loading">
-                <i class="fas fa-spinner fa-spin loading__spinner"></i>
-                <p>Chargement des FAQ...</p>
-            </div>
-        `;
-    }
-
-    function showError(msg) {
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-circle"></i>
-                <p>${msg}</p>
-                <button class="retry-btn" onclick="loadFaqs()">Réessayer</button>
-            </div>
-        `;
-    }
-
     loadFaqs();
 });

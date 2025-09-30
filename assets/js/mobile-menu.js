@@ -90,7 +90,7 @@
             });
             
             // Simulation d'un chargement pour le bouton
-            document.querySelectorAll(".btn-primary").forEach(ctaButton => {
+            document.querySelectorAll(".formContact").forEach(ctaButton => {
             ctaButton.addEventListener('click', function(e) {
                 if (e.target.tagName === 'BUTTON') {
                     try{
@@ -143,6 +143,52 @@
                                         grid-template-columns: 1fr 1fr;
                                     }
                                 }
+
+                                .btn {
+                                    padding: 0.8rem 1.8rem;
+                                    border: none;
+                                    border-radius: 25px;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+                                    white-space: nowrap;
+                                    display: inline-flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+                                                
+                                .btn:focus-visible {
+                                    outline: 2px solid var(--accent-color);
+                                    outline-offset: 2px;
+                                }
+                                                
+                                .btn::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    left: -100%;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                                    transition: left 0.7s ease;
+                                }
+                                                
+                                .btn:hover::before {
+                                    left: 100%;
+                                }
+                                                
+                                .btn-accent {
+                                    background-color: var(--accent-color);
+                                    color: white;
+                                }
+                                                
+                                .btn-accent:hover {
+                                    background-color: var(--hover-accent-color);
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                                }
                             </style>
                         </head>
                         <body>
@@ -179,7 +225,7 @@
                                             </label>
                                         </div>
 
-                                        <button type="submit" id="submitForm">Send Message</button>
+                                        <button type="submit" class="btn btn-accent" id="submitForm">Send Message</button>
                                     </form>
                                     <div id="formResponse" style="margin-top:10px;color:green;"></div>
                                 </div>

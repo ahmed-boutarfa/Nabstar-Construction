@@ -1,6 +1,7 @@
 :root {
     --white: #ffffff;
     --primary-color: #01165a;
+    --hover-primary-color: #062f646c;
     --accent-color: #fe5d15;
     --light-bg: #eeeae9;
     --text-color: #333; /* Slightly darker for better readability */
