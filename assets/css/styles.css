@@ -77,6 +77,41 @@
   z-index: 1;
 }
 
+.rule {
+  width: 100%;
+  height: 12.5px;
+  background: repeating-linear-gradient(
+    to right,
+    #636060 0px 1px,
+    transparent 1px 20px
+  );
+  position:relative;
+}
+.rule::after {
+  content: "";
+  right: 8px;
+  position: absolute;
+  width: 100%;
+  height: 7.5px;
+  background: repeating-linear-gradient(
+    to right,
+    #636060 0px 1px,
+    transparent 1px 20px
+  );
+}
+.rule::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  width: 100%;
+  height: 10px;
+  background: repeating-linear-gradient(
+    to right,
+    #636060 0px 1px,
+    transparent 1px 20px
+  );
+}
+
 .error-message {
     background-color: #ffebee;
     color: #c62828;

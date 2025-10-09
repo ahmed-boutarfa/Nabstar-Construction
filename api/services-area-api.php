@@ -29,7 +29,8 @@ try {
         'pagination' => [
             'offset' => $offset,
             'limit' => $limit,
-            'total' => (int)$total
+            'total' => (int)$total,
+            'has_more' => ($offset + $limit) < $total
         ],
         'timestamp' => time()
     ]);

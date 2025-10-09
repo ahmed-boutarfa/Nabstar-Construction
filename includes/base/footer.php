@@ -65,7 +65,7 @@
                 <div class="send-email">
                     <h3>Get the latest information</h3>
                     <form action="#" method="POST">
-                        <input type="email" placeholder="Email address" name="email" required>
+                        <input id="sendMailInformation" type="email" placeholder="Email address" required>
                         <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
                     </form>
                 </div>

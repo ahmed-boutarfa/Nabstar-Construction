@@ -51,8 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<section class="contact section__padding animate-on-scroll" id="contact">
-    
+<section class="contact animate-on-scroll" id="contact">
+    <div class="rule animate-on-scroll"></div>
+    <div class="section__padding">
     <div class="contact-header animate-on-scroll">
         <h4 class="contact__title all__title animate-on-scroll">Contact Us</h4>
         <h2 class="contact__headline all__headline animate-on-scroll">Let’s Turn Your Idea<br><span class="accent-color">Into Reality</span></h2>
@@ -130,5 +131,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79197.33912864063!2d-0.40550974999999995!3d51.661358799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487614c908fcc35b%3A0x5d521bb3eb9734f1!2sWatford%2C%20UK!5e0!3m2!1sen!2stn!4v1758590443121!5m2!1sen!2stn" width="100%" height="400" style="border:0; border-radius: 18px; margin-top: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+    </div>
+    <div class="rule animate-on-scroll"></div>
 </section>

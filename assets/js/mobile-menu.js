@@ -119,8 +119,8 @@
                             <link rel="stylesheet" href="assets/css/contact.css">
                             <link rel="stylesheet" href="assets/css/base.css">
                             <style>
-                                body{
-                                    padding:1.5rem 2rem;
+                                .contact-content{
+                                    margin:2.5rem 3rem;
                                 }
                                 .degradation{
                                   position: absolute;
@@ -189,9 +189,46 @@
                                     transform: translateY(-2px);
                                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                                 }
+                                
+                                .rule {
+                                  width: 100%;
+                                  height: 12.5px;
+                                  background: repeating-linear-gradient(
+                                    to right,
+                                    #636060 0px 1px,
+                                    transparent 1px 20px
+                                  );
+                                  position:relative;
+                                }
+                                .rule::after {
+                                  content: "";
+                                  right: 8px;
+                                  position: absolute;
+                                  width: 100%;
+                                  height: 7.5px;
+                                  background: repeating-linear-gradient(
+                                    to right,
+                                    #636060 0px 1px,
+                                    transparent 1px 20px
+                                  );
+                                }
+                                .rule::before {
+                                  content: "";
+                                  position: absolute;
+                                  left: 6px;
+                                  width: 100%;
+                                  height: 10px;
+                                  background: repeating-linear-gradient(
+                                    to right,
+                                    #636060 0px 1px,
+                                    transparent 1px 20px
+                                  );
+                                }
+
                             </style>
                         </head>
                         <body>
+                            <div class="rule"></div>
                             <h1 style="color:var(--accent-color);text-align:center;font-size:3rem">Contact Us</h1>
                             <div id="contactContainer" class="contact-content animate-on-scroll">
                                 <div class="contact__form animate-on-scroll">
@@ -262,6 +299,7 @@
                                     <div class="degradation"></div>
                                 </div>
                             </div>
+                            <div class="rule" style="rotate:180deg;"></div>
                             <script src="function.js"></script>
                         </body>
                         </html>

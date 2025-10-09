@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let allServices = [];
     let totalServices = 0;
 
-    async function loadServices(offset = 0, limit = 9, append = false) {
+    async function loadServices(offset = 0, limit = getLimit(), append = false) {
     try {
         showLoading(container, "Services");
 
@@ -67,11 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // pagination button
-        //if (data.pagination && typeof data.pagination.has_more !== "undefined") {
-          //toggleBtn.style.display = data.pagination.has_more ? 'block' : 'none';
-        //} else {
-          //toggleBtn.style.display = servicesData.length >= limit ? 'block' : 'none';
-        //}
+        if (data.pagination && typeof data.pagination.has_more !== "undefined") {
+          toggleBtn.style.display = data.pagination.has_more || expanded ? 'block' : 'none';
+        }
 
     }catch (error) {
         console.error("Erreur:", error);
@@ -82,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function toggleServicesView() {
     if (!expanded) {
-        loadServices(0, totalServices || 100); // charge tout
+        loadServices(0, totalServices); // charge tout
         toggleBtn.textContent = "View Less";
         toggleBtn.setAttribute('aria-expanded', 'true');
     } else {

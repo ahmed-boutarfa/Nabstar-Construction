@@ -115,11 +115,8 @@ footer::before {
 
 /* --- Footer Navigation Section --- */
 .footer-navigation ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     max-width: 30rem;
 
 }
@@ -136,7 +133,7 @@ footer::before {
 
 .footer-navigation a{
     position: relative;
-    width: auto;
+    width: fit-content;
 }
 .footer-navigation a:hover,
 .footer-contact a:hover {

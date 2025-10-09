@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       renderAreas(data.data);
       offset += data.data.length;
+      if (data.pagination && typeof data.pagination.has_more !== "undefined") {
+        toggleBtn.style.display = data.pagination.has_more || expanded ? 'block' : 'none';
+      }
 
     } catch (error) {
       console.error("Erreur:", error);
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function toggleServicesAreaView() {
     if (!expanded) {
-        loadAreas(0,total || 100); // charge tout
+        loadAreas(0,total); // charge tout
         toggleBtn.textContent = "View Less";
         toggleBtn.setAttribute('aria-expanded', 'true');
     } else {

@@ -184,6 +184,8 @@
   overflow: hidden;
 }
 .features-table {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     width: 100%;
     height: 100%;
     border-collapse: collapse;
@@ -194,34 +196,46 @@
     color: var(--white);
     border-radius: 15px;
     overflow: hidden;
+    border: 2px solid transparent;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
-.features-table td {
+.features-table div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 2rem;
-    border: 2px solid var(--light-bg);
     transition: background-color 0.3s ease;
 }
-.features-table td:hover {
+.features-table div:hover {
     background-color: rgba(254, 93, 21, 0.2);
 }
-.features-table td .accent-color {
+
+.features-table div:nth-child(1){
+    border-bottom: 2px solid var(--light-bg);
+    border-right: 2px solid var(--light-bg);
+}
+
+.features-table div:nth-child(2){
+    border-bottom: 2px solid var(--light-bg);
+    border-left: 2px solid var(--light-bg);
+}
+
+.features-table div:nth-child(3){
+    border-top: 2px solid var(--light-bg);
+    border-right: 2px solid var(--light-bg);
+}
+
+.features-table div:nth-child(4){
+    border-top: 2px solid var(--light-bg);
+    border-left: 2px solid var(--light-bg);
+}
+.features-table div .accent-color {
     font-size: 22px;
     font-weight: 700;
     display: block;
     margin-bottom: 8px;
 }
-.features-table tr:first-child td {
-    border-top: none;
-}
-.features-table tr:last-child td {
-    border-bottom: none;
-}
-.features-table td:first-child {
-    border-left: none;
-}
-.features-table td:last-child {
-    border-right: none;
-}
+
 .experiance-div {
     color: rgba(255,255,255,0.8);
     background-color: var(--accent-color);

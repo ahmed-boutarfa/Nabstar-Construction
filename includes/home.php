@@ -1,4 +1,7 @@
 <section id="home">
+        <div class="container__rule">
+            <div class="rule animate-on-scroll"></div>
+        </div>
         <div class="section__padding">
             <div class="home-welcome-div animate-on-scroll">
                 <h4 class="all__title">Welcome to <span class="accent-color">Nabstar Construction</span></h4>
@@ -33,24 +36,21 @@
                 </div>
                 <div class="main-welcome-div animate-on-scroll">
                     <div class="table-experiance-div">
-                        <table class="features-table">
-                            <tr>
-                                <td>
+                        <div class="features-table">
+                                <div>
                                     <span class="accent-color">Best Rates</span><span>Affordable rates that provide exceptional value</span>
-                                </td>
-                                <td>
+                                </div>
+                                <div>
                                     <span class="accent-color">Top Quality</span><span>Exceptional work with close attention to detail</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                                </div>
+                                <div>
                                     <span class="accent-color">Full Cover</span><span>Comprehensive insurance for your peace of mind</span>
-                                </td>
-                                <td>
+                                </div>
+                                <div>
                                     <span class="accent-color">Fast Service</span><span>Fast and reliable support whenever you need it most</span>
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
+                            
+                        </div>
                     </div>
                     <div class="experiance-div">
                         <div class="experiance-info-div">
