@@ -12,7 +12,7 @@ if ($isLocal) {
 } else {
     // --- Connexion en ligne (InfinityFree) ---
     define('DB_HOST', 'sql111.infinityfree.com');
-    define('DB_NAME', 'if0_40053831_XXX');
+    define('DB_NAME', 'if0_40053831_nabstar');
     define('DB_USER', 'if0_40053831');
     define('DB_PASS', 'rIVILEcE83OXI');
 }

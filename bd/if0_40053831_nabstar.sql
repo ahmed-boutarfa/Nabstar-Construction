@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `insaat`
 --
-CREATE DATABASE IF NOT EXISTS `insaat` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `insaat`;
+
 
 -- --------------------------------------------------------
 
@@ -385,8 +384,7 @@ ALTER TABLE `yazilar`
 --
 -- Database: `nabstar`
 --
-CREATE DATABASE IF NOT EXISTS `nabstar` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `nabstar`;
+
 
 -- --------------------------------------------------------
 
