@@ -239,7 +239,7 @@
         <script>
             const backToTop = document.querySelector('.back-to-top');
             window.addEventListener('scroll', () => {
-              if (window.scrollY > 200) {
+              if (window.scrollY > 800) {
                 backToTop.style.display = 'block';
               } else {
                 backToTop.style.display = 'none';

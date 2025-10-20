@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . '/../api/db.php';
 require_once __DIR__ . '/../api/helpers.php';
+require_once __DIR__ . '/../vendor/autoload.php'; // ✅ charge PHPMailer
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     setHeaders();
@@ -24,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $phoneNumber = trim($_POST['phoneNumber']);
         $message     = trim($_POST['message']);
 
+        // ✅ Enregistrer dans la base
         $stmt = $pdo->prepare("
             INSERT INTO contacts (name, email, phone, message)
             VALUES (:fullName, :email, :phoneNumber, :message)
@@ -35,11 +39,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':message'     => $message
         ]);
 
-        echo json_encode([
-            'success' => true,
-            'message' => 'Message sent successfully ✅'
-        ]);
+        // ✅ Envoyer un e-mail avec PHPMailer
+        $mail = new PHPMailer(true);
+        try {
+            // Configuration du serveur SMTP
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com'; // ou smtp.yourdomain.com
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'boutarfa.ahmed.boutarfa.ahmed@gmail.com'; // 🔒 ton adresse email
+            $mail->Password   = 'gujo yulh fsdx lzzh'; // 🔒 mot de passe ou App Password Gmail
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            // Expéditeur et destinataire
+            $mail->setFrom($email, $fullName);
+            $mail->addAddress('ahmed.boutarfa.2003@gmail.com', 'Nabstar Construction');
+
+            // Contenu
+            $mail->isHTML(true);
+            $mail->Subject = "📩 New contact message from $fullName";
+            $mail->Body    = "
+                <h2>New Contact Message</h2>
+                <p><strong>Name:</strong> $fullName</p>
+                <p><strong>Email:</strong> $email</p>
+                <p><strong>Phone:</strong> $phoneNumber</p>
+                <p><strong>Message:</strong></p>
+                <p>$message</p>
+            ";
+
+            $mail->send();
+
+            echo json_encode([
+                'success' => true,
+                'message' => 'Message sent successfully ✅'
+            ]);
+        } catch (Exception $e) {
+            error_log("Mail error: " . $mail->ErrorInfo);
+            echo json_encode([
+                'success' => false,
+                'error' => 'Database saved but email not sent ❌'
+            ]);
+        }
+
         exit;
+
     } catch (Exception $e) {
         error_log("Insert error: " . $e->getMessage());
         echo json_encode([
@@ -50,6 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+
 
 <section class="contact animate-on-scroll" id="contact">
     <div class="rule animate-on-scroll"></div>
