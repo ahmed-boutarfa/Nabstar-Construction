@@ -33,57 +33,110 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+    // Configuration
+    const CONFIG = {
+        iframeId: "trainingIframe",
+        formId: "contactForm",
+        responseId: "formResponse",
+        endpoint: "includes/contact.php",
+        animationDuration: 3000
+    };
+
+    // Initialisation principale
     initFormHandler(document);
 
-    
-    const iframe = document.getElementById("trainingIframe");
+    // Gestion de l'iframe
+    const iframe = document.getElementById(CONFIG.iframeId);
     if (iframe) {
         iframe.addEventListener("load", () => {
-            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-            initFormHandler(iframeDoc);
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                initFormHandler(iframeDoc);
+            } catch (error) {
+                console.error("Erreur d'accès à l'iframe:", error);
+            }
         });
     }
 });
 
 function initFormHandler(doc) {
-    const form = doc.getElementById("contactForm");
-    const formResponse = doc.getElementById("formResponse");
-
-    if (!form) return;
+    const { formId, responseId, endpoint, animationDuration } = CONFIG;
     
-    form.addEventListener("submit", function (e) {
+    const form = doc.getElementById(formId);
+    const formResponse = doc.getElementById(responseId);
+
+    if (!form) {
+        console.warn(`Formulaire ${formId} introuvable`);
+        return;
+    }
+
+    form.addEventListener("submit", handleSubmit);
+
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        let formData = new FormData(this);
+        // Désactivation du bouton d'envoi
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Envoi en cours...";
 
-        fetch("includes/contact.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(r => r.json())
-        .then(data => {
+        // Réinitialisation de la réponse
+        resetResponse(formResponse);
+
+        try {
+            const formData = new FormData(form);
+            
+            const response = await fetch(endpoint, {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            const data = await response.json();
+
             if (data.success) {
-                formResponse.style.color = "green";
-                formResponse.textContent = data.message;
+                showResponse(formResponse, data.message, "success");
                 form.reset();
             } else {
-                formResponse.style.color = "red";
-                formResponse.textContent = data.error;
+                showResponse(formResponse, data.error, "error");
             }
 
-            formResponse.style.opacity = "1";
-            setTimeout(() => {
-                formResponse.style.transition = "opacity 1s ease-out";
-                formResponse.style.opacity = "0";
-            }, 3000);
-        })
-        .catch(err => {
-            formResponse.style.color = "red";
-            formResponse.textContent = "An error occurred.";
-            console.error(err);
-        });
-    });
+        } catch (error) {
+            console.error("Erreur:", error);
+            showResponse(
+                formResponse,
+                "Erreur de connexion. Veuillez réessayer.",
+                "error"
+            );
+        } finally {
+            // Réactivation du bouton
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
+    }
+
+    function resetResponse(responseElement) {
+        responseElement.style.opacity = "0";
+        responseElement.textContent = "";
+        responseElement.className = "form-response";
+    }
+
+    function showResponse(responseElement, message, type) {
+        responseElement.textContent = message;
+        responseElement.style.color = type === "success" ? "#22c55e" : "#ef4444";
+        responseElement.classList.add(type);
+        
+        // Animation d'apparition
+        responseElement.style.opacity = "1";
+        
+        // Disparition progressive après délai
+        setTimeout(() => {
+            responseElement.style.transition = `opacity ${animationDuration}ms ease-out`;
+            responseElement.style.opacity = "0";
+        }, animationDuration);
+    }
 }
 
 // show loading (pass container)
