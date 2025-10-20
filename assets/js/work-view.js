@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         max-height: 2.5em;
                         overflow: hidden;
                         transition: max-height 0.5s ease;
+                        margin-bottom:0;
                     }
                     .work__bio.expanded {
                         max-height: 500px;

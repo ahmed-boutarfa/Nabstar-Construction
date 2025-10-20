@@ -295,3 +295,25 @@ footer .copyright a:hover {
         justify-content: center;
     }
 }
+.back-to-top {
+  display: none;
+}
+.back-to-top {
+  position: fixed;
+  right: 25px;
+  bottom: 40px;
+  background: #004aad; /* couleur Nabstar */
+  color: #fff;
+  font-size: 22px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background: #002b6b;
+  transform: translateY(-4px);
+}

@@ -71,10 +71,6 @@
 }
 
 @media screen and (max-width: 1024px){
-  .services{
-    padding: 3rem 2rem;
-  }
-
   .services__content{
     width: 100%;
   }
@@ -123,10 +119,6 @@
     width:80%;
     font-size: 32px;
     line-height: 1.5;
-  }
-
-  .services{
-    padding: 4rem 1rem;
   }
 
   .services__content{

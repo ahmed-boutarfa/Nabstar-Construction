@@ -1,7 +1,4 @@
 <section id="home">
-        <div class="container__rule">
-            <div class="rule animate-on-scroll"></div>
-        </div>
         <div class="section__padding">
             <div class="home-welcome-div animate-on-scroll">
                 <h4 class="all__title">Welcome to <span class="accent-color">Nabstar Construction</span></h4>

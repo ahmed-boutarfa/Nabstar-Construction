@@ -1,5 +1,5 @@
 
-<header class="main-header" role="banner">
+<header id="header" class="main-header" role="banner">
     <div class="container header-container">
 
         <!-- Top Row: Logo Left + Toggle Right -->
